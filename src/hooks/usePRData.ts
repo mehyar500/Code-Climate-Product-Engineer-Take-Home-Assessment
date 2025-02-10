@@ -8,6 +8,7 @@ export const usePRData = (filters: FilterOptions) => {
   return useQuery({
     queryKey: ['pull-requests', filters],
     queryFn: () => api.searchPullRequests(filters),
+    enabled: !!filters.repository, // Only run query when repository is selected
     staleTime: 1000 * 60 * 5, // Consider data stale after 5 minutes
     retry: (failureCount, error) => {
       if (error instanceof Error && error.message.includes('rate limit')) {

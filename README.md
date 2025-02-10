@@ -32,6 +32,29 @@ A powerful web application that allows Engineering Directors to explore and anal
 - npm or yarn
 - GitHub Personal Access Token (for API access)
 
+## Environment Variables
+
+The application requires a GitHub Personal Access Token to function. Follow these steps to set it up:
+
+1. Create a GitHub Personal Access Token:
+   - Go to GitHub Settings → Developer Settings → Personal Access Tokens → Tokens (classic)
+   - Click "Generate new token (classic)"
+   - Select the following scopes:
+     - `repo` (Full control of private repositories)
+     - `read:org` (Read organization data)
+   - Copy the generated token
+
+2. Create a `.env` file in the project root:
+   ```env
+   VITE_GITHUB_TOKEN=your_github_token_here
+   ```
+   Replace `your_github_token_here` with your actual GitHub token.
+
+   ⚠️ **Important**: 
+   - Never commit the `.env` file to version control
+   - Keep your token secure and don't share it
+   - If the token is compromised, revoke it immediately in GitHub settings
+
 ## Setup
 
 1. Clone the repository:
@@ -45,10 +68,7 @@ A powerful web application that allows Engineering Directors to explore and anal
    npm install
    ```
 
-3. Create a `.env` file in the root directory:
-   ```env
-   VITE_GITHUB_TOKEN=your_github_token_here
-   ```
+3. Set up environment variables as described above
 
 4. Start the development server:
    ```bash
